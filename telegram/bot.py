@@ -41,6 +41,12 @@ class Bot:
         return Message.newFromJsonDict(r.json()['result'][-1])
     
     def getUpdates(self):
+        """Use this method to receive incoming updates using long polling.
+        Args:
+            
+        Returns:
+          A  telegram.Update object is returned.
+        """
         url = f'{self.base_url}/getUpdates'
 
         r = requests.post(url)
