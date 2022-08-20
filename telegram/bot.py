@@ -12,7 +12,7 @@ class Bot:
     def getMe(self):
         url = f'{self.base_url}/getMe'
         r = requests.get(url)
-        return User.newJsonFromDict(r.json()['result'])
+        return User.newJsonFromDict(r.json())
     
     def sendMessage(self, chat_id, text):
         url = f'{self.base_url}/sendMessage'
@@ -23,14 +23,14 @@ class Bot:
         }
 
         r = requests.get(url, params=payload)
-        return Message.newFromJsonDict(r.json())
+        return Message.newFromJsonDict(r.json()['result'][-1])
     
     def getUpdates(self):
         url = f'{self.base_url}/getUpdates'
 
         r = requests.post(url)
 
-        return Update.newFromJsonDict(r.json())
+        return Update.newFromJsonDict(r.json()['result'][-1])
     
     def _requestUrl(self, url, method, data=None):
         if method == 'post':

@@ -12,14 +12,14 @@ class Message:
             user = None
         
         if 'chat' in data:
-            chat = user.newJsonFromDict(data['chat'])
+            chat = User.newJsonFromDict(data['chat'])
         else:
             chat = None
         
         
         return Message(
             message_id = data.get('message_id'),
-            user = User.newJsonFromDict(data),
+            user = user,
             chat = chat,
             text = data.get('text')
         )
