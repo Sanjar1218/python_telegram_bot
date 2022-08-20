@@ -1,5 +1,6 @@
-from user import User
-from message import Message
-from update import Update
-from user import User
-from bot import Bot
+from telegram.user import User
+from telegram.message import Message
+from telegram.update import Update
+from telegram.user import User
+from telegram.bot import Bot
+

@@ -1,21 +1,21 @@
 import requests
 
+from telegram import User, Update, Message
 
 class Bot:
     def __init__(self, token, base_url=None) -> None:
         if base_url==None:
-            self.base_url = 'https://api.telegram.org/bot%s' % token 
+            self.base_url = f'https://api.telegram.org/bot{token}'
         else:
             self.base_url = base_url+token
 
     def getMe(self):
-        url = '%s/getMe' % self.base_url
-
+        url = f'{self.base_url}/getMe'
         r = requests.get(url)
-        return r.json()
+        return User.newJsonFromDict(r.json()['result'])
     
     def sendMessage(self, chat_id, text):
-        url = '%s/sendMessage' % self.base_url
+        url = f'{self.base_url}/sendMessage'
 
         payload = {
             'chat_id': chat_id,
