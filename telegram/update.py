@@ -7,6 +7,11 @@ class Update():
         
     
     def newFromJsonDict(data):
+        '''
+        Convert User object to dictionary
+        Returns:
+            dict: dictionary of user data
+        '''
         if 'message' in data:
             message = Message.newFromJsonDict(data['message'])
         else:

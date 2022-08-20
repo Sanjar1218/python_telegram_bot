@@ -6,6 +6,10 @@ class Message:
             setattr(self, param, kwargs.get(param, default))
     
     def newFromJsonDict(data):
+        """Convert message object to Dict
+        Returns:
+            dict: dictionary of message data
+        """
         if 'from' in data:
             user = User.newJsonFromDict(data['from'])
         else:

@@ -17,7 +17,7 @@ class Bot:
         """
         url = f'{self.base_url}/getMe'
         r = requests.get(url)
-        return User.newJsonFromDict(r.json())
+        return User.newJsonFromDict(r.json()['result'])
     
     def sendMessage(self, chat_id, text):
         """Use this method to send text messages.
