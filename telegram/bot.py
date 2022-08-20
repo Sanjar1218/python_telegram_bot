@@ -65,12 +65,12 @@ class Bot:
         Returns:
           A JSON object.
         """
-        if method == 'post':
+        if method == 'POST':
             try:
                 return requests.post(url, data=data)
             except:
                 return 'Error'
-        elif method == 'get':
+        elif method == 'GET':
             try:
                 return requests.get(url, data=data)
             except:
