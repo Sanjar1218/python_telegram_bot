@@ -23,14 +23,14 @@ class Bot:
         }
 
         r = requests.get(url, params=payload)
-        return r.json()
+        return Message.newFromJsonDict(r.json())
     
     def getUpdates(self):
         url = f'{self.base_url}/getUpdates'
 
         r = requests.post(url)
 
-        return r.json()
+        return Update.newFromJsonDict(r.json())
     
     def _requestUrl(self, url, method, data=None):
         if method == 'post':

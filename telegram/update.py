@@ -7,7 +7,12 @@ class Update():
         
     
     def newFromJsonDict(data):
+        if 'message' in data:
+            message = Message.newFromJsonDict(data['message'])
+        else:
+            message = None
+
         return Update(
             update_id = data.get('update_id'),
-            message = Message.newFromJsonDict(data['message'])
+            message = message
         )
